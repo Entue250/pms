@@ -1,0 +1,100 @@
+PatientManagementSystem/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/pms/
+│       │       ├── controller/
+│       │       │   ├── DeleteDoctorServlet.java
+│       │       │   ├── DeleteNurseServlet.java
+│       │       │   ├── LoginServlet.java
+│       │       │   ├── LogoutServlet.java
+│       │       │   ├── PatientImageUploadServlet.java
+│       │       │   ├── RegisterDoctorServlet.java
+│       │       │   ├── RegisterNurseServlet.java
+│       │       │   ├── RegisterPatientServlet.java
+│       │       │   ├── UpdateDiagnosisServlet.java
+│       │       │   ├── UpdateDoctorProfileServlet.java
+│       │       │   ├── UpdateDoctorServlet.java
+│       │       │   ├── UpdateNurseProfileServlet.java
+│       │       │   ├── UpdateNurseServlet.java
+│       │       │   ├── UpdatePasswordServlet.java
+│       │       │   └── UpdatePatientProfileServlet.java
+│       │       ├── model/
+│       │       │   ├── Diagnosis.java
+│       │       │   ├── Doctor.java
+│       │       │   ├── Nurse.java
+│       │       │   ├── Patient.java
+│       │       │   └── User.java
+│       │       ├── dao/
+│       │       │   ├── DiagnosisDAO.java
+│       │       │   ├── DoctorDAO.java
+│       │       │   ├── NurseDAO.java
+│       │       │   ├── PatientDAO.java
+│       │       │   └── UserDAO.java
+│       │       └── util/
+│       │           └── DBConnection.java
+│       └── webapp/
+│           ├── WEB-INF/
+│           │   ├── lib/
+│           │   │   ├── jakarta.servlet.jsp.jstl-2.0.0.jar
+│           │   │   ├── jakarta.servlet.jsp.jstl-api-2.0.0.jar
+│           │   │   ├── jstl-1.2.jar
+│           │   │   ├── mysql-connector-java-8.0.28.jar
+│           │   │   └── standard-1.1.2.jar
+│           │   └── web.xml
+│           ├── views/
+│           │   ├── admin/
+│           │   │   ├── addDoctor.jsp
+│           │   │   ├── case-detail.jsp
+│           │   │   ├── cases.jsp
+│           │   │   ├── dashboard.jsp
+│           │   │   ├── doctor-detail.jsp
+│           │   │   ├── doctors.jsp
+│           │   │   ├── nurse-detail.jsp
+│           │   │   ├── nurses.jsp
+│           │   │   ├── pending-cases.jsp
+│           │   │   └── profile.jsp
+│           │   ├── doctor/
+│           │   │   ├── addNurse.jsp
+│           │   │   ├── all-patients.jsp
+│           │   │   ├── cases.jsp
+│           │   │   ├── confirmed-cases.jsp
+│           │   │   ├── dashboard.jsp
+│           │   │   ├── nurse-detail.jsp
+│           │   │   ├── nurses.jsp
+│           │   │   ├── patient-detail.jsp
+│           │   │   ├── pending-cases.jsp
+│           │   │   └── profile.jsp
+│           │   ├── nurse/
+│           │   │   ├── addPatient.jsp
+│           │   │   ├── case-detail.jsp
+│           │   │   ├── confirmed-cases.jsp
+│           │   │   ├── dashboard.jsp
+│           │   │   ├── edit-patient.jsp
+│           │   │   ├── nonreferrable-cases.jsp
+│           │   │   ├── patient-detail.jsp
+│           │   │   ├── patients.jsp
+│           │   │   ├── profile.jsp
+│           │   │   ├── pending-cases.jsp
+│           │   │   └── referrable-cases.jsp
+│           │   ├── patient/
+│           │   │   ├── dashboard.jsp
+│           │   │   ├── diagnoses.jsp
+│           │   │   ├── profile.jsp
+│           │   │   └── results.jsp
+│           │   └── common/
+│           │       ├── adminNav.jsp
+│           │       ├── doctorNav.jsp
+│           │       ├── nurseNav.jsp
+│           │       └── patientNav.jsp
+│           ├── css/
+│           │   └── style.css
+│           ├── images/
+│           │   └── (It will store all images)
+│           ├── js/
+│           │   └── script.js
+│           ├── index.jsp
+│           ├── README.md
+│           └── Structure.txt
+└── database/
+    └── pms_schema.sql
