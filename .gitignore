@@ -1,0 +1,13 @@
+# Secrets - never commit
+src/main/webapp/WEB-INF/.env
+
+# Build output
+/build/
+/bin/
+*.class
+
+# IDE local workspace state (machine-specific, not shared project config)
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/shelf/
+.idea/httpRequests/
