@@ -4,6 +4,7 @@ src/main/webapp/WEB-INF/.env
 # Build output
 /build/
 /bin/
+/out/
 *.class
 
 # IDE local workspace state (machine-specific, not shared project config)
