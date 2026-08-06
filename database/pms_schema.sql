@@ -64,4 +64,11 @@ CREATE TABLE Diagnosis (
 );
 
 -- Insert initial admin user
-INSERT INTO Users (Username, Password, UserType) VALUES ('admin', 'admin123', 'Admin');
+-- Password is bcrypt-hashed (plaintext value was 'admin123'). Passwords are
+-- hashed with jBCrypt in com.pms.dao.UserDAO (BCrypt.hashpw on write,
+-- BCrypt.checkpw on login) — never stored or compared as plaintext.
+-- NOTE: if you have an existing dev database seeded before this change,
+-- its Users rows still hold plaintext passwords and will no longer
+-- authenticate. Re-run this script against a fresh database, or delete
+-- and re-register those accounts (see README.md).
+INSERT INTO Users (Username, Password, UserType) VALUES ('admin', '$2a$10$L0901NWvRIc0PPZu1kF2vOSyPVN5Bl5jK9GQNcM3XxRkDE32v0m3y', 'Admin');
