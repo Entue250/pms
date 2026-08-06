@@ -1,0 +1,25 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PatientManagementSystem" type="#org.apache.catalina.startup.Bootstrap" factoryName="Local" nameIsGenerated="false">
+    <option name="UPDATE_ACTION" value="ExplodedWar" />
+    <deployment>
+      <artifact name="PatientManagementSystem:war exploded">
+        <settings>
+          <option name="CONTEXT_PATH" value="/PatientManagementSystem" />
+        </settings>
+      </artifact>
+    </deployment>
+    <server-settings>
+      <option name="BASE_DIRECTORY_NAME" value="1" />
+    </server-settings>
+    <predefined_log_file enabled="true" id="Tomcat" />
+    <predefined_log_file enabled="true" id="Tomcat Catalina" />
+    <RunnerSettings RunnerId="Run" />
+    <ConfigurationWrapper RunnerId="Run" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="PatientManagementSystem:war exploded" />
+      </option>
+    </method>
+  </configuration>
+</component>
