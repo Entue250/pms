@@ -99,7 +99,9 @@ Execute the SQL script located in database/pms_schema.sql to create the necessar
 
 Configuration
 
-Update the database connection details in com.pms.util.DBConnection.java with your MySQL credentials
+Set your MySQL credentials in src/main/webapp/WEB-INF/.env (copy .env.example
+and fill in DB_URL/DB_USER/DB_PASSWORD) — loaded at startup by
+com.pms.util.EnvLoader. Do not hardcode credentials in DBConnection.java.
 Ensure your servlet container is configured to run Jakarta EE 9+ applications
 
 Deployment
@@ -109,26 +111,16 @@ Deploy the resulting WAR file to your servlet container
 Access the application at http://localhost:8080/PatientManagementSystem/
 
 Default Login Credentials
-The system comes with the following default users for testing:
-Admin:
+database/pms_schema.sql seeds exactly one account — an Admin user, with a
+bcrypt-hashed password. The plaintext seed password is admin123; the
+Username is admin. There are no default Doctor, Nurse, or Patient accounts —
+those roles are only ever created at runtime through the app's own
+registration flows (Admin registers Doctors, Doctors register Nurses, Nurses
+register Patients), so there is no fixed default password to document for
+them; ask whoever registered the account, or re-register it.
 
-Username: admin
-Password: admin123
-
-Doctor:
-
-Username: doctor
-Password: doctor123
-
-Nurse:
-
-Username: nurse
-Password: nurse123
-
-Patient:
-
-Username: patient
-Password: patient123
+All passwords (seed and runtime) are bcrypt-hashed via jBCrypt
+(com.pms.dao.UserDAO) — never stored or compared as plaintext.
 
 Important Notes
 
