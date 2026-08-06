@@ -1,0 +1,122 @@
+/* theme.css - PMS brand theme: clinical teal palette, Poppins/Inter typography */
+/* Scoped to public-facing pages (index.jsp) for this pass; loaded after style.css so it wins on shared selectors. */
+
+:root {
+    --pms-primary: #0f6e6a;
+    --pms-primary-dark: #0b4f4c;
+    --pms-primary-light: #14b8a6;
+    --pms-bg: #f2f9f8;
+    --pms-surface: #ffffff;
+    --pms-text: #334155;
+    --pms-heading: #123c3a;
+    --pms-border: #d9ece9;
+    --pms-font-heading: 'Poppins', sans-serif;
+    --pms-font-body: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--pms-bg);
+    font-family: var(--pms-font-body);
+    color: var(--pms-text);
+}
+
+h1, h2, h3, h4, h5, h6,
+.pms-brand, .pms-login-title {
+    font-family: var(--pms-font-heading);
+    color: var(--pms-heading);
+}
+
+/* Hero */
+.pms-hero {
+    background: linear-gradient(135deg, var(--pms-primary) 0%, var(--pms-primary-dark) 100%);
+    padding: 4rem 1rem 6rem;
+}
+
+.pms-hero-icon {
+    font-size: 2.75rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+
+.pms-brand {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.pms-tagline {
+    font-family: var(--pms-font-body);
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 32rem;
+    margin: 0 auto;
+}
+
+/* Main / login card */
+.pms-main {
+    margin-top: -4rem;
+    padding-bottom: 3rem;
+}
+
+.pms-login-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(15, 110, 106, 0.15);
+}
+
+.pms-login-title {
+    font-weight: 600;
+}
+
+.pms-login-card .form-label {
+    font-weight: 500;
+    color: var(--pms-text);
+}
+
+.pms-login-card .form-control {
+    border-radius: 8px;
+    border-color: var(--pms-border);
+    padding: 0.65rem 0.9rem;
+}
+
+.pms-login-card .form-control:focus {
+    border-color: var(--pms-primary-light);
+    box-shadow: 0 0 0 0.2rem rgba(20, 184, 166, 0.25);
+}
+
+.pms-login-card .btn-primary {
+    background-color: var(--pms-primary);
+    border-color: var(--pms-primary);
+    font-family: var(--pms-font-heading);
+    font-weight: 500;
+    padding: 0.65rem 0.9rem;
+    border-radius: 8px;
+}
+
+.pms-login-card .btn-primary:hover,
+.pms-login-card .btn-primary:focus {
+    background-color: var(--pms-primary-dark);
+    border-color: var(--pms-primary-dark);
+}
+
+/* Footer */
+.pms-footer {
+    padding: 1.5rem 1rem;
+    color: #5f7674;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 575.98px) {
+    .pms-hero {
+        padding: 3rem 1rem 5rem;
+    }
+
+    .pms-brand {
+        font-size: 1.75rem;
+    }
+
+    .pms-main {
+        margin-top: -3rem;
+    }
+}
