@@ -24,5 +24,17 @@ to `src/main/webapp/WEB-INF/.env` and fill in your own values before running.
 3. Deploy to Apache Tomcat 10.1.
 4. Open `http://localhost:8080/PatientManagementSystem/index.jsp`.
 
+## Password hashing
+All passwords are hashed with bcrypt (jBCrypt, `WEB-INF/lib/jbcrypt-0.4.jar`) —
+`UserDAO` hashes on registration/password-change and verifies with
+`BCrypt.checkpw()` on login. Passwords are never stored or compared as
+plaintext.
+
+**If you have an existing dev database created before this change**, its
+`Users` rows still hold plaintext passwords and will no longer authenticate
+(the login check now expects a bcrypt hash). There's no migration script —
+either re-run `database/pms_schema.sql` against a fresh database, or delete
+and re-register those specific accounts through the app.
+
 See `src/main/webapp/README.txt` for detailed application-facing documentation
 and workflows.
