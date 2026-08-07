@@ -76,7 +76,133 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // ---- Landing page only (guarded so dashboard pages are unaffected) ----
+    if (document.body.classList.contains('pms-landing')) {
+        initLandingNavbar();
+        initScrollReveal();
+        initStatCounters();
+        initBackToTop();
+        initPasswordToggles();
+        initPlaceholderForms();
+    }
 });
+
+// Sticky navbar gains a shadow once the page scrolls past the hero
+function initLandingNavbar() {
+    const navbar = document.querySelector('.landing-navbar');
+    if (!navbar) return;
+    const onScroll = function () {
+        navbar.classList.toggle('navbar-scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+}
+
+// Lightweight fade/slide/zoom-in-on-scroll for elements with [data-animate]
+function initScrollReveal() {
+    const targets = document.querySelectorAll('[data-animate]');
+    if (!targets.length) return;
+    if (!('IntersectionObserver' in window)) {
+        targets.forEach(el => el.classList.add('in-view'));
+        return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    targets.forEach(el => observer.observe(el));
+}
+
+// Animates the "15+ Doctors / 20,000+ Patients" style counters once visible
+function initStatCounters() {
+    const counters = document.querySelectorAll('[data-count]');
+    if (!counters.length) return;
+
+    const animateCounter = function (el) {
+        const target = parseInt(el.dataset.count, 10) || 0;
+        const suffix = el.dataset.suffix || '';
+        const duration = 1500;
+        const start = performance.now();
+
+        function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const value = Math.floor(progress * target);
+            el.textContent = value.toLocaleString() + suffix;
+            if (progress < 1) {
+                requestAnimationFrame(tick);
+            } else {
+                el.textContent = target.toLocaleString() + suffix;
+            }
+        }
+        requestAnimationFrame(tick);
+    };
+
+    if (!('IntersectionObserver' in window)) {
+        counters.forEach(animateCounter);
+        return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+    counters.forEach(el => observer.observe(el));
+}
+
+// Back-to-top button: shows after scrolling, scrolls smoothly to top on click
+function initBackToTop() {
+    const btn = document.querySelector('.back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', function () {
+        btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Show/hide password toggle for any input wired with a matching
+// [data-toggle-password="<input id>"] button
+function initPasswordToggles() {
+    document.querySelectorAll('[data-toggle-password]').forEach(function (btn) {
+        const input = document.getElementById(btn.dataset.togglePassword);
+        if (!input) return;
+        btn.addEventListener('click', function () {
+            const showing = input.type === 'text';
+            input.type = showing ? 'password' : 'text';
+            const icon = btn.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('bi-eye', showing);
+                icon.classList.toggle('bi-eye-slash', !showing);
+            }
+        });
+    });
+}
+
+// Contact + newsletter forms have no backend yet - acknowledge the submit
+// visually instead of navigating away, per the "visually complete, backend
+// integration not required yet" requirement.
+function initPlaceholderForms() {
+    document.querySelectorAll('.js-placeholder-form').forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const feedback = form.querySelector('.form-submit-feedback');
+            if (feedback) {
+                feedback.classList.remove('d-none');
+                setTimeout(() => feedback.classList.add('d-none'), 4000);
+            }
+            form.reset();
+        });
+    });
+}
 
 // Function to preview image before upload
 function previewImage(input, previewId) {
