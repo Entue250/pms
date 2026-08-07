@@ -1,122 +1,158 @@
-/* theme.css - PMS brand theme: clinical teal palette, Poppins/Inter typography */
+/* theme.css - PMS brand theme: deep navy blue + emerald palette, Poppins/Inter typography */
 /* Scoped to public-facing pages (index.jsp) for this pass; loaded after style.css so it wins on shared selectors. */
 
 :root {
-    --pms-primary: #0f6e6a;
-    --pms-primary-dark: #0b4f4c;
-    --pms-primary-light: #14b8a6;
-    --pms-bg: #f2f9f8;
+    --pms-navy: #0a2540;
+    --pms-navy-dark: #071b30;
+    --pms-navy-light: #123c61;
+    --pms-emerald: #10b981;
+    --pms-emerald-dark: #059669;
+    --pms-bg: #f1f3f5;
     --pms-surface: #ffffff;
     --pms-text: #334155;
-    --pms-heading: #123c3a;
-    --pms-border: #d9ece9;
+    --pms-heading: #0a2540;
+    --pms-border: #e2e8f0;
     --pms-font-heading: 'Poppins', sans-serif;
     --pms-font-body: 'Inter', sans-serif;
+
+    /* legacy aliases kept so nothing that already shipped silently breaks */
+    --pms-primary: var(--pms-navy);
+    --pms-primary-dark: var(--pms-navy-dark);
+    --pms-primary-light: var(--pms-emerald);
 }
 
-body {
+body.pms-landing {
     background-color: var(--pms-bg);
     font-family: var(--pms-font-body);
     color: var(--pms-text);
 }
 
-h1, h2, h3, h4, h5, h6,
+.pms-landing h1, .pms-landing h2, .pms-landing h3,
+.pms-landing h4, .pms-landing h5, .pms-landing h6,
 .pms-brand, .pms-login-title {
     font-family: var(--pms-font-heading);
     color: var(--pms-heading);
 }
 
-/* Hero */
-.pms-hero {
-    background: linear-gradient(135deg, var(--pms-primary) 0%, var(--pms-primary-dark) 100%);
-    padding: 4rem 1rem 6rem;
-}
-
-.pms-hero-icon {
-    font-size: 2.75rem;
-    line-height: 1;
-    margin-bottom: 0.75rem;
-}
-
 .pms-brand {
-    font-size: 2.25rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #ffffff;
-    margin-bottom: 0.5rem;
 }
 
-.pms-tagline {
-    font-family: var(--pms-font-body);
-    font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 32rem;
-    margin: 0 auto;
+/* Login section - glassmorphism card over a navy/emerald gradient */
+.pms-login-section {
+    background: linear-gradient(135deg, var(--pms-navy) 0%, var(--pms-emerald-dark) 100%);
+    padding: 5rem 1rem;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Main / login card */
-.pms-main {
-    margin-top: -4rem;
-    padding-bottom: 3rem;
+.pms-login-section::before,
+.pms-login-section::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.35;
+}
+
+.pms-login-section::before {
+    width: 320px;
+    height: 320px;
+    background: var(--pms-emerald);
+    top: -80px;
+    left: -80px;
+}
+
+.pms-login-section::after {
+    width: 280px;
+    height: 280px;
+    background: #ffffff;
+    bottom: -100px;
+    right: -60px;
 }
 
 .pms-login-card {
-    border: none;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(15, 110, 106, 0.15);
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 20px 45px rgba(7, 27, 48, 0.35);
+    color: #ffffff;
 }
 
-.pms-login-title {
-    font-weight: 600;
+.pms-login-card .pms-login-title,
+.pms-login-card h2 {
+    color: #ffffff;
 }
 
 .pms-login-card .form-label {
     font-weight: 500;
-    color: var(--pms-text);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .pms-login-card .form-control {
-    border-radius: 8px;
-    border-color: var(--pms-border);
-    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.65rem 0.9rem 0.65rem 2.5rem;
 }
 
 .pms-login-card .form-control:focus {
-    border-color: var(--pms-primary-light);
-    box-shadow: 0 0 0 0.2rem rgba(20, 184, 166, 0.25);
+    border-color: var(--pms-emerald);
+    box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.35);
+    background-color: #ffffff;
 }
 
-.pms-login-card .btn-primary {
-    background-color: var(--pms-primary);
-    border-color: var(--pms-primary);
+.pms-login-card .input-icon-wrap {
+    position: relative;
+}
+
+.pms-login-card .input-icon-wrap > i {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--pms-navy);
+    opacity: 0.7;
+}
+
+.pms-login-card .toggle-password {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--pms-navy);
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.pms-login-card .form-check-label,
+.pms-login-card a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.pms-login-card .btn-login {
+    background-color: var(--pms-emerald);
+    border-color: var(--pms-emerald);
     font-family: var(--pms-font-heading);
-    font-weight: 500;
-    padding: 0.65rem 0.9rem;
-    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    color: #ffffff;
+    transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
-.pms-login-card .btn-primary:hover,
-.pms-login-card .btn-primary:focus {
-    background-color: var(--pms-primary-dark);
-    border-color: var(--pms-primary-dark);
-}
-
-/* Footer */
-.pms-footer {
-    padding: 1.5rem 1rem;
-    color: #5f7674;
-    font-size: 0.875rem;
-}
-
-@media (max-width: 575.98px) {
-    .pms-hero {
-        padding: 3rem 1rem 5rem;
-    }
-
-    .pms-brand {
-        font-size: 1.75rem;
-    }
-
-    .pms-main {
-        margin-top: -3rem;
-    }
+.pms-login-card .btn-login:hover,
+.pms-login-card .btn-login:focus {
+    background-color: var(--pms-emerald-dark);
+    border-color: var(--pms-emerald-dark);
+    transform: translateY(-2px);
+    color: #ffffff;
 }
