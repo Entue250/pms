@@ -162,7 +162,7 @@
     <!-- ============ About us ============ -->
     <section id="about" class="about-section">
         <div class="container">
-            <div class="row align-items-center g-5">
+            <div class="row align-items-center g-4">
                 <div class="col-lg-6 about-image" data-animate="zoom">
                     <img src="images/about.jpg" class="img-fluid" alt="Patient Management System facility overview">
                 </div>
@@ -373,7 +373,7 @@
                         <div class="team-role mb-2">Doctor</div>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
@@ -385,7 +385,7 @@
                         <div class="team-role mb-2">Doctor</div>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
@@ -397,7 +397,7 @@
                         <div class="team-role mb-2">Doctor</div>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
@@ -409,7 +409,7 @@
                         <div class="team-role mb-2">Nurse</div>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
@@ -421,7 +421,7 @@
                         <div class="team-role mb-2">Nurse</div>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
@@ -433,7 +433,7 @@
                         <div class="team-role mb-2">Administrator</div>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
@@ -593,7 +593,7 @@
                 <div class="section-eyebrow">Contact</div>
                 <h2 class="section-title">Get in Touch</h2>
             </div>
-            <div class="row g-5">
+            <div class="row g-4">
                 <div class="col-lg-5">
                     <div class="contact-info-item">
                         <span class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></span>
@@ -716,7 +716,7 @@
                     <p class="small">A coordinated care platform for administrators, doctors, nurses, and patients.</p>
                     <div class="footer-social mt-3">
                         <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                     </div>
