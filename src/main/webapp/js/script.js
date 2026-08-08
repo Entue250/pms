@@ -85,8 +85,22 @@ document.addEventListener('DOMContentLoaded', function() {
         initBackToTop();
         initPasswordToggles();
         initPlaceholderForms();
+        initScrollSpyHashSync();
     }
 });
+
+// Keeps the URL hash in sync with whichever section Bootstrap's ScrollSpy
+// currently considers active, without triggering a scroll jump of its own
+// (history.replaceState does not scroll, unlike setting location.hash).
+function initScrollSpyHashSync() {
+    document.body.addEventListener('activate.bs.scrollspy', function (event) {
+        const link = event.relatedTarget;
+        const href = link && link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            history.replaceState(null, '', href);
+        }
+    });
+}
 
 // Sticky navbar gains a shadow once the page scrolls past the hero
 function initLandingNavbar() {
