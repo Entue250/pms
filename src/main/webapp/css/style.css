@@ -49,14 +49,16 @@ body {
 .pms-landing { scroll-behavior: smooth; }
 .pms-landing section { scroll-margin-top: 76px; }
 
-/* Scroll-reveal (lightweight alternative to AOS, no extra CDN dependency) */
+/* Scroll-reveal (lightweight alternative to AOS, no extra CDN dependency).
+   Content is never opacity:0 - if the IntersectionObserver never fires (e.g.
+   the page loads scrolled straight to a #hash section) the content is still
+   fully visible, just without the subtle slide/zoom-in flourish. */
 .pms-landing [data-animate] {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(16px);
+    transition: transform 0.5s ease;
 }
-.pms-landing [data-animate].in-view { opacity: 1; transform: translateY(0); }
-.pms-landing [data-animate="zoom"] { transform: scale(0.92); }
+.pms-landing [data-animate].in-view { transform: translateY(0); }
+.pms-landing [data-animate="zoom"] { transform: scale(0.97); }
 .pms-landing [data-animate="zoom"].in-view { transform: scale(1); }
 
 /* Navbar */
@@ -78,10 +80,24 @@ body {
     font-weight: 500;
     color: var(--pms-navy);
     margin: 0 0.35rem;
+    position: relative;
 }
 .landing-navbar .nav-link:hover,
 .landing-navbar .nav-link.active {
     color: var(--pms-emerald-dark);
+}
+.landing-navbar .nav-link.active {
+    font-weight: 600;
+}
+.landing-navbar .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0.4rem;
+    right: 0.4rem;
+    bottom: -6px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: var(--pms-emerald);
 }
 .landing-navbar .btn-nav-login {
     background-color: var(--pms-emerald);
@@ -470,7 +486,7 @@ body {
     color: rgba(255, 255, 255, 0.75);
     padding: 4rem 0 0;
 }
-.site-footer h6 {
+.pms-landing .site-footer h6 {
     color: #ffffff;
     font-weight: 700;
     margin-bottom: 1.1rem;
