@@ -13,7 +13,7 @@
     <link href="css/style.css?v=20260807" rel="stylesheet">
     <link href="css/theme.css?v=20260807" rel="stylesheet">
 </head>
-<body class="pms-landing">
+<body class="pms-landing" data-bs-spy="scroll" data-bs-target="#landingNav" data-bs-offset="90" data-bs-smooth-scroll="true" tabindex="0">
 
     <!-- ============ Navbar ============ -->
     <nav class="navbar navbar-expand-lg landing-navbar sticky-top">
